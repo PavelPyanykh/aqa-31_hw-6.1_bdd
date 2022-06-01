@@ -14,16 +14,18 @@ public class TransferMoney {
     private final SelenideElement button = $("[data-test-id='action-transfer']");
     private final SelenideElement error = $("[data-test-id='error-notification']");
 
-    public TransferMoney(){
+    public TransferMoney() {
         heading.shouldBe(Condition.visible);
     }
-    public DashboardPage validTransfer(String sum, DataHelper.CardNumber cardNumber){
+
+    public DashboardPage validTransfer(String sum, DataHelper.CardNumber cardNumber) {
         amount.setValue(sum);
         from.setValue(String.valueOf(cardNumber));
         button.click();
         return new DashboardPage();
     }
-    public void errorMessage(){
+
+    public void errorMessage() {
         error.shouldBe(Condition.visible);
     }
 }
